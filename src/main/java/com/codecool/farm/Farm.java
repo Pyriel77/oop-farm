@@ -16,10 +16,9 @@ class Farm {
 
     public void feedAnimals() {
         if (!animals.isEmpty()) {
-        for (Animal animal : animals) {
-
-            animal.feed();
-        }
+            for (Animal animal : animals) {
+                animal.feed();
+            }
         }
     }
 
@@ -40,15 +39,13 @@ class Farm {
             } else {
                 race = "pig";
             }
-        status.add("There is a " + animal.getSize() + " sized "
-                + race + " in the farm.");
-
+            status.add("There is a " + animal.getSize() + " sized "
+                    + race + " in the farm.");
         }
         return status;
     }
 
     public List<Animal> getAnimals() {
-
         return animals;
     }
 }
