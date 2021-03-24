@@ -17,6 +17,7 @@ class Farm {
     public void feedAnimals() {
         if (!animals.isEmpty()) {
         for (Animal animal : animals) {
+
             animal.feed();
         }
         }
@@ -47,8 +48,7 @@ class Farm {
     }
 
     public List<Animal> getAnimals() {
-        List<Animal> allAnimals = new ArrayList<>();
 
-        return allAnimals;
+        return animals;
     }
 }
