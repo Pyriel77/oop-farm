@@ -1,40 +1,48 @@
 package com.codecool.farm;
 
 import com.codecool.farm.animal.Animal;
+import com.codecool.farm.animal.Cattle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class Farm {
 
-    private List<Animal> animalList;
+    private List<Animal> animals;
 
-    public Farm(List<Animal> animalList) {
-
+    public Farm(List<Animal> animals) {
+        this.animals = animals;
     }
 
     public void feedAnimals() {
-        if (!animalList.isEmpty()) {
-        for (Animal animal : animalList) {
+        if (!animals.isEmpty()) {
+        for (Animal animal : animals) {
             animal.feed();
         }
         }
     }
 
     public void butcher(Butcher butcher) {
-
+        animals.removeIf(butcher::canButcher);
     }
 
     public boolean isEmpty() {
-        if (animalList.size() == 0) {
-            return true;
-        }
-        return false;
+        return animals.size() == 0;
     }
 
     public List<String> getStatus() {
         List<String> status = new ArrayList<>();
+        String race = "";
+        for (Animal animal : animals) {
+            if (animal instanceof Cattle) {
+                race = "cattle";
+            } else {
+                race = "pig";
+            }
+        status.add("There is a " + animal.getSize() + " sized "
+                + race + " in the farm.");
 
+        }
         return status;
     }
 
@@ -43,20 +51,4 @@ class Farm {
 
         return allAnimals;
     }
-
 }
-/*Helye: com.codecool.farm package
-        Egy állatokból álló listában tárolódnak a farmon található állatok.
-        Ez a lista a constructorban megadható.
-
-        feedAnimals() method:
-        feladata: A farmon lévő összes állat megetetése.
-        butcher(Butcher butcher) method:
-        feladata: Az összes levágható állat eltávolítása a farmon lévő állatokat tartalmazó listából.
-        boolean isEmpty() method:
-        feladata: Igazat ad vissza, ha a farmon nincsenek állatok, egyébként hamisat ad.
-        List<String> getStatus() mehod:
-        feladata: Az állatok státuszait tartalmazó listát ad vissza, a
-        farmon lévő összes állatra vonatkozóan.
-        A lista elemei a következő formátumot követik:
-        "There is a <állat mérete> sized <állat típusa (pig/cattle)> in the farm."*/
