@@ -2,9 +2,11 @@ package com.codecool.farm.animal;
 
 public class Pig extends Animal {
 
+    private int size;
+
     @Override
     public void feed() {
-        super.feed();
+        setSize(1);
     }
 }
 

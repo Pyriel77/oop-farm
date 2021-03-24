@@ -12,6 +12,10 @@ public abstract class Animal {
         return size;
     }
 
+    public void setSize(int changeOfSize) {
+        this.size += changeOfSize;
+    }
+
     public void feed() {
 
     }

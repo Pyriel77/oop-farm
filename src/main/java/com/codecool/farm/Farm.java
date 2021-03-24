@@ -14,7 +14,11 @@ class Farm {
     }
 
     public void feedAnimals() {
-
+        if (!animalList.isEmpty()) {
+        for (Animal animal : animalList) {
+            animal.feed();
+        }
+        }
     }
 
     public void butcher(Butcher butcher) {
@@ -22,7 +26,9 @@ class Farm {
     }
 
     public boolean isEmpty() {
-
+        if (animalList.size() == 0) {
+            return true;
+        }
         return false;
     }
 
